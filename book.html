@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            display: flex;
+        }
+
+        /* Flex container to split image and form */
+        .main-container {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* Left section: Full height image */
+        .image-container {
+            width: 50%;
+            background: url('booking.jpeg') no-repeat center center;
+            background-size: cover;
+        }
+
+        /* Right section: Form container */
+        .booking-container {
+            width: 50%;
+            max-width: 400px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+            position: relative;
+        }
+
+        .close-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-size: 16px;
+        }
+
+        input[type="text"], input[type="number"], input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="date"] {
+            position: relative;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #ffa500;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #e69500;
+        }
+
+        .success-message {
+            text-align: center;
+            color: green;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 900px) {
+            .main-container {
+                flex-direction: column;
+            }
+
+            .image-container, .booking-container {
+                width: 100%;
+            }
+
+            .booking-container {
+                max-width: 100%;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            input[type="text"], input[type="number"], input[type="date"], .btn {
+                font-size: 14px;
+            }
+
+            .close-icon {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <!-- Left side: image container -->
+    <div class="image-container"></div>
+
+    <!-- Right side: booking form container -->
+    <div class="booking-container">
+        <span class="close-icon" id="closeIcon">&times;</span>
+        <h1>Book Now</h1>
+
+        <label for="destination">Destination</label>
+        <input type="text" id="destination" placeholder="Search places" required>
+
+        <label for="guests">Enter Number of Guests</label>
+        <input type="number" id="guests" placeholder="Number of guests" min="1" required>
+
+        <label for="arrival">Leaving</label>
+        <input type="date" id="arrival" placeholder="dd/mm/yyyy" required>
+
+        <label for="leaving">Arrival</label>
+        <input type="date" id="leaving" placeholder="dd/mm/yyyy" required>
+
+        <button class="btn" id="bookNow">Book Now</button>
+
+        <p class="success-message" id="successMessage"></p>
+    </div>
+</div>
+
+<script>
+    const bookNowBtn = document.getElementById('bookNow');
+    const successMessage = document.getElementById('successMessage');
+    const closeIcon = document.getElementById('closeIcon');
+
+    // Display success message when "Book Now" is clicked
+    bookNowBtn.addEventListener('click', function () {
+        successMessage.textContent = "Booked successfully!";
+    });
+
+    // Redirect to home page when the close icon is clicked
+    closeIcon.addEventListener('click', function () {
+        window.location.href = 'home.html'; // Change 'index.html' to your homepage URL
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Booking Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('back.png') no-repeat center center fixed;
+            background-size: cover;
+            height: 100vh;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .registration-container {
+            background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            max-width: 800px;
+            position: relative; /* Position relative to contain the close button */
+        }
+
+        /* Close button styling */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .close-btn:hover {
+            color: #ff0000;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .form-group {
+            width: 48%; /* Each field takes up half of the container width */
+            box-sizing: border-box;
+        }
+
+        label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="password"],
+        input[type="date"],
+        select {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .full-width {
+            width: 100%;
+        }
+
+        .submit-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #5cb85c;
+            color: white;
+            padding: 10px 40px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: auto;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4cae4c;
+        }
+
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-container">
+        <!-- Close button at the top-right corner -->
+        <span class="close-btn" id="closeBtn">&times;</span>
+
+        <h2>Register for Your Travel Account</h2>
+        <form id="registrationForm" onsubmit="return validateForm()">
+            <!-- Personal Information -->
+            <div class="form-group">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+
+            <!-- Login Information -->
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Choose a username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Create a password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password" required>
+            </div>
+
+            <!-- Preferences -->
+            <div class="form-group">
+                <label for="language">Preferred Language</label>
+                <select id="language" name="language">
+                    <option value="English">English</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="Chinese">Chinese</option>
+                    <option value="German">German</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="French">French</option>
+                </select>
+            </div>
+
+            <!-- Security and Consent -->
+            <div class="form-group full-width">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms">I agree to the Terms and Conditions</label>
+                </div>
+            </div>
+
+            <div class="submit-container">
+                <input type="submit" value="Register">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Function to validate the form before submission
+        function validateForm() {
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirm_password").value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return false;
+            }
+
+            const termsChecked = document.getElementById("terms").checked;
+            if (!termsChecked) {
+                alert("You must agree to the terms and conditions!");
+                return false;
+            }
+
+            alert("Registration successful!");
+            return true;
+        }
+
+        // Close button logic to redirect to home page
+        document.getElementById("closeBtn").addEventListener("click", function() {
+            window.location.href = 'home.html'; // Redirect to the home page, adjust the URL if needed
+        });
+    </script>
+</body>
+</html>

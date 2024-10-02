@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Booking Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #ff7f50, #87ceeb, #32cd32, #ff69b4); /* Multi-color gradient */
+            background-size: 300% 300%;
+            animation: gradientBackground 10s ease infinite;
+            margin: 0;
+            padding: 0;
+        }
+
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .services-container {
+            background-color: #fff;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+            position: relative; /* To position the close button */
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            background-color: #5cb85c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #4cae4c;
+        }
+
+        /* Cross mark styling */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="services-container">
+        <!-- Cross mark to redirect to the home page -->
+        <a href="home.html" class="close-btn">&times;</a>
+
+        <h1>Travel Booking Services</h1>
+        <form id="servicesForm">
+
+            <!-- Transportation Services -->
+            <h2>Transportation Services</h2>
+
+            <div class="form-group">
+                <label for="transportationType">Choose Transportation:</label>
+                <select id="transportationType">
+                    <option value="flight">Flight</option>
+                    <option value="train">Train</option>
+                    <option value="bus">Bus</option>
+                    <option value="car-rental">Car Rental</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="departureCity">Departure City:</label>
+                <input type="text" id="departureCity" placeholder="Enter Departure City">
+            </div>
+
+            <div class="form-group">
+                <label for="destinationCity">Destination City:</label>
+                <input type="text" id="destinationCity" placeholder="Enter Destination City">
+            </div>
+
+            <div class="form-group">
+                <label for="travelDate">Travel Date:</label>
+                <input type="date" id="travelDate">
+            </div>
+
+            <div class="form-group" id="seatPreferenceGroup" style="display: none;">
+                <label for="seatPreference">Seat Preference (Flights Only):</label>
+                <select id="seatPreference">
+                    <option value="window">Window</option>
+                    <option value="aisle">Aisle</option>
+                </select>
+            </div>
+
+            <!-- Accommodation Services -->
+            <h2>Accommodation Services</h2>
+
+            <div class="form-group">
+                <label for="accommodationType">Accommodation Type:</label>
+                <select id="accommodationType">
+                    <option value="hotel">Hotel</option>
+                    <option value="homestay">Homestay</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="checkInDate">Check-in Date:</label>
+                <input type="date" id="checkInDate">
+            </div>
+
+            <div class="form-group">
+                <label for="checkOutDate">Check-out Date:</label>
+                <input type="date" id="checkOutDate">
+            </div>
+
+            <div class="form-group">
+                <label for="numberOfGuests">Number of Guests:</label>
+                <input type="number" id="numberOfGuests" min="1">
+            </div>
+
+            <!-- Tours & Activities -->
+            <h2>Tours & Activities</h2>
+
+            <div class="form-group">
+                <label for="tourType">Tour Type:</label>
+                <select id="tourType">
+                    <option value="guided-tour">Guided Tour</option>
+                    <option value="adventure">Adventure Activity</option>
+                    <option value="cultural">Cultural Experience</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="tourDate">Tour Date:</label>
+                <input type="date" id="tourDate">
+            </div>
+
+            <!-- Travel Insurance -->
+            <h2>Travel Insurance</h2>
+
+            <div class="form-group">
+                <label for="insuranceType">Insurance Type:</label>
+                <select id="insuranceType">
+                    <option value="medical">Medical Coverage</option>
+                    <option value="trip-cancellation">Trip Cancellation</option>
+                    <option value="luggage">Luggage Protection</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="insuranceStartDate">Start Date:</label>
+                <input type="date" id="insuranceStartDate">
+            </div>
+
+            <!-- Food & Dining -->
+            <h2>Food & Dining Services</h2>
+
+            <div class="form-group">
+                <label for="mealPreference">In-flight Meal Preference:</label>
+                <select id="mealPreference">
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="non-vegetarian">Non-Vegetarian</option>
+                    <option value="vegan">Vegan</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="restaurantReservation">Restaurant Reservation:</label>
+                <input type="text" id="restaurantReservation" placeholder="Enter City for Reservation">
+            </div>
+
+            <!-- Additional Services -->
+            <h2>Additional Services</h2>
+
+            <div class="form-group">
+                <label for="airportTransfer">Airport Transfer:</label>
+                <select id="airportTransfer">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="currencyExchange">Currency Exchange Amount:</label>
+                <input type="number" id="currencyExchange" placeholder="Enter Amount">
+            </div>
+
+            <div class="submit-container">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("servicesForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+            alert("Form Submitted Successfully!");
+        });
+
+        // Show seat preference only for flights
+        document.getElementById("transportationType").addEventListener("change", function () {
+            var seatPreferenceGroup = document.getElementById("seatPreferenceGroup");
+            if (this.value === "flight") {
+                seatPreferenceGroup.style.display = "block";
+            } else {
+                seatPreferenceGroup.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
